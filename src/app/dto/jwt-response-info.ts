@@ -9,10 +9,10 @@ export class JwtResponse{
     token: string;
     type = 'Bearer';
     id: string;
-    username: string
-    roleSet: Set<String>
+    username: string;
+    roleSet: string[];
 
-    constructor(token: string, id: string, username: string, roleSet: Set<String>){
+    constructor(token: string, id: string, username: string, roleSet: string[]){
         this.token = token;
         this.username = username;
         this.id = id;
