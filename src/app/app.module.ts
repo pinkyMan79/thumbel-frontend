@@ -11,6 +11,8 @@ import { ForumPageComponent } from './forum-page/forum-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MediaComponent } from './media/media.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
