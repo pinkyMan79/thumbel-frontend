@@ -13,6 +13,7 @@ import { MediaComponent } from './media/media.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
+import { httpInterceptorProviders } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http'
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

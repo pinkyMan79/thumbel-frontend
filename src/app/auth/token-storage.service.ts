@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-const TOKEN_KEY = "";
-const USERNAME_KEY = "";
-const AUTHORITIES_KEY = "";
+const TOKEN_KEY = "TOKEN";
+const USERNAME_KEY = "USERNAME";
+const AUTHORITIES_KEY = "AUTHORITIES";
 
 @Injectable({
   providedIn: 'root'
@@ -13,39 +13,48 @@ export class TokenStorageService {
 
   constructor() { }
 
-  public signOut(){
+  signOut(){
     window.sessionStorage.clear;
   }
 
   public saveToken(token: string){
     let storage = window.sessionStorage;
-    if (storage.getItem(TOKEN_KEY) != null){
+    if (storage.getItem(TOKEN_KEY)){
       storage.removeItem(TOKEN_KEY);
     }
     storage.setItem(TOKEN_KEY, token);
   }
 
-  public getToken(): string | null{
+  public getToken(): string{
     let token = sessionStorage.getItem(TOKEN_KEY);
-    return token;
+    console.log(token);
+    if(token){
+      return token;
+    }else{
+      return "";
+    }
   }
 
   public saveUsername(username: string){
     let storage = window.sessionStorage;
-    if(storage.getItem(USERNAME_KEY) != null){
+    if(storage.getItem(USERNAME_KEY)){
       storage.removeItem(USERNAME_KEY);
     }
     storage.setItem(USERNAME_KEY, username);
   }
 
-  public getUsername(): string | null{
+  public getUsername(): string{
     let token = sessionStorage.getItem(USERNAME_KEY);
-    return token;
+    if (token){
+      return token;
+    }else{
+      return "";
+    }
   }
 
   public saveAuthorities(authorities: string[]){
     let storage = window.sessionStorage;
-    if (storage.getItem(AUTHORITIES_KEY) != null){
+    if (storage.getItem(AUTHORITIES_KEY)){
       storage.removeItem(AUTHORITIES_KEY);
     }
     console.log(authorities.toString);
@@ -54,11 +63,17 @@ export class TokenStorageService {
 
   public getAuthorities(): string[]{
     this.roles = [];
-    if (sessionStorage.getItem(AUTHORITIES_KEY) != null){
+    if (sessionStorage.getItem(AUTHORITIES_KEY)){
       console.log(sessionStorage.getItem(AUTHORITIES_KEY));
-      JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)+"").forEach((authtority: string) => {
-        this.roles.push(authtority);
-      });
+      let au = sessionStorage.getItem(AUTHORITIES_KEY);
+      if (au){
+        JSON.parse(au).forEach((authtority: string) => {
+          this.roles.push(authtority);
+        });
+      }else{
+        console.log("Some problems in get auth")
+      }
+      
     }
     return this.roles;
   }

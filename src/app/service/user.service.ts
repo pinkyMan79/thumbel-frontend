@@ -26,10 +26,10 @@ export class UserService {
     private subscribeUrl = "http://localhost:8080/user/subscribe/";
     private restorePasswordUrl = "http://localhost:8080/user/restore-password/";
 
-    processSubscribe(subscribeTo: string){
+    processSubscribe(subscribeTo: string): void{
       this.http.put((this.subscribeUrl+subscribeTo), {responseType: 'text'});
     }
-    processRestorePassword(email: string){
+    processRestorePassword(email: string): void{
       this.http.get((this.restorePasswordUrl+email), {responseType: 'text'});
     }
   }

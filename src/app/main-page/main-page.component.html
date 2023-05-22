@@ -1,1 +1,16 @@
 <p>main-page works!</p>
+
+<div *ngIf="info.token != null; else not_logged">
+    <h5>Hello, Dear {{ info.username }} </h5>
+    <p>
+        <strong>Role</strong> {{ info.authorities }}
+        <strong>Token</strong> {{ info.token }}
+    </p>
+    <button class="btn btn-secondary" (click)="logout()" >LogOut</button>
+</div>
+
+<ng-template #not_logged>
+    <h1>Please, log in or shut the fuck up and go away, asshole</h1>
+    <p>Don't have an account?</p>
+      <a href="register" class="btn btn-success">Sign Up</a>
+</ng-template>

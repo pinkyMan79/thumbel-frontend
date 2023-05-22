@@ -7,16 +7,16 @@ export class JwtResponse{
     //private Set<String> roleSet;
 
     token: string;
-    type = 'Bearer';
+    type = 'Bearer ';
     id: string;
     username: string;
     roleSet: string[];
 
-    constructor(token: string, id: string, username: string, roleSet: string[]){
+    constructor(token: string, id: string, username: string){
         this.token = token;
         this.username = username;
         this.id = id;
-        this.roleSet = roleSet;
+        this.roleSet = ['USER'];
     }
 
 }
