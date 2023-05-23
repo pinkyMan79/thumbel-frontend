@@ -1,1 +1,29 @@
-<p>forum-page works!</p>
+<div class="container">
+    <div *ngIf="forum" class="card">
+      <h2 class="card-header">{{forum.title}}</h2>
+      <div class="card-body">
+        <p class="card-text">{{forum.description}}</p>
+        <form (ngSubmit)="sendMessage()" class="form-inline">
+          <div class="form-group">
+            <label for="message" class="mr-2">Type your message:</label>
+            <input type="text" id="message" [(ngModel)]="meassage" name="message" class="form-control mr-2">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+        </form>
+        <div *ngIf="messages">
+          <h3>Messages:</h3>
+          <ul class="list-group">
+            <li *ngFor="let message of messages" class="list-group-item">
+        
+                Sender: {{message.senderLogin}} 
+                <br/>
+                Message: {{message.content}} 
+                <br/>
+                Date: {{message.date}}
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
