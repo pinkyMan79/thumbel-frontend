@@ -9,11 +9,16 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { MediaComponent } from './media/media.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { ForumCreationPageComponent } from './forum-creation-page/forum-creation-page.component';
 
 const routes: Routes = [
   {
     path: 'admin',
     component: AdminPageComponent
+  },
+  {
+    path: 'create',
+    component: ForumCreationPageComponent
   },
   {
     path: 'forum',

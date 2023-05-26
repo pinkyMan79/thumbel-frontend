@@ -14,6 +14,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { httpInterceptorProviders } from './auth/auth-interceptor';
+import { ForumCreationPageComponent } from './forum-creation-page/forum-creation-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     ForumPageComponent,
     ProfileComponent,
     MediaComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    ForumCreationPageComponent
   ],
   imports: [
     BrowserModule,
